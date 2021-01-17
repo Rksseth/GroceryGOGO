@@ -1,0 +1,70 @@
+<mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile>
+        <mat-card>
+            <div class="header">
+                <mat-card-title>Category Breakdown</mat-card-title>
+                <mat-form-field>
+                    <mat-label>Select Purchase Date</mat-label>
+                    <mat-select [(ngModel)]="topLeftDate">
+                        <mat-option *ngFor="let purchase of list" [value]="purchase.date">{{purchase.date | date}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <mat-card-content>
+                <div *ngFor="let purchase of list">
+                    <pie-graph *ngIf="topLeftDate == purchase.date" [purchase]="purchase"></pie-graph>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-card>
+            <div class="header">
+                <mat-card-title>Estimated Next Purchase</mat-card-title>
+                <mat-form-field>
+                    <mat-label>Select Item</mat-label>
+                    <mat-select [(ngModel)]="topRightItem">
+                        <mat-option *ngFor="let item of topRightList; let i = index" [value]="i" [attr.data-index]="i">{{ item[0].label }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <mat-card-content>
+                <line-graph [lineChartData]="topRightList[topRightItem]"></line-graph>
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-card>
+            <div class="header">
+                <mat-card-title>Past Receipts</mat-card-title>
+                <mat-form-field>
+                    <mat-label>Select Purchase Date</mat-label>
+                    <mat-select [(ngModel)]="bottomLeftDate">
+                        <mat-option *ngFor="let purchase of list; let j = index" [value]="j" [attr.data-index]="j">{{purchase.date | date}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <mat-card-content>
+                <div class="receipt">
+                    <purchase-receipt [case]="bottomLeftDate"></purchase-receipt>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-card>
+            <div class="header">
+                <mat-card-title>Most Frequently Bought Items</mat-card-title>
+                <mat-form-field>
+                    <mat-label>Select Month</mat-label>
+                    <mat-select [(ngModel)]="bottomRightMonth">
+                        <mat-option *ngFor="let month of ['last month', 'current month']" [value]="month">{{ month }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <mat-card-content>
+                <bar-graph></bar-graph>
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

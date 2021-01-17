@@ -1,0 +1,31 @@
+table {
+    width: 100%;
+
+    tr, td {
+        text-align: right;
+    }
+}
+
+.footer {
+    background-color: white;
+    
+    td {
+        padding: 5px;
+        width: 33%;
+    }
+}
+.total-title {
+    color: black;
+}
+
+.purchase-details {
+    text-align: left !important;
+
+    .flex {
+        display: flex;
+
+        span {
+            margin: auto 0;
+        }
+    }
+}

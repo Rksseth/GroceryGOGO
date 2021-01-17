@@ -1,0 +1,37 @@
+<table >
+    <tr>
+        <td colspan="3" class="purchase-details">
+            <div class="flex">
+                <span>Purchased at</span> &nbsp;
+                <img src="../../assets/walmart.png" height="25">
+                &nbsp;<span>70 Bridgeport Rd E, Waterloo, ON N2J 2J9</span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+      <th><u>Name</u></th>
+      <th><u>Quantity</u></th>
+      <th><u>Price</u></th>
+    </tr>
+  
+    <tr *ngFor="let item of items">
+      <td>{{item.name}}</td>
+      <td>{{item.quantity}}</td>
+      <td>$ {{item.price}}</td>
+    </tr>
+
+    <tr class="footer">
+        <td></td>
+        <td></td>
+        <td class="total-title">
+            <b>
+                <u>Total</u>
+            </b>
+        </td>
+    </tr>
+    <tr class="footer">
+        <td></td>
+        <td></td>
+        <td class="total-title">$ {{ total }}</td>
+    </tr>
+</table>

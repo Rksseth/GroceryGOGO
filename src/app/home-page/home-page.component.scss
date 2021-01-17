@@ -1,0 +1,40 @@
+.chart {
+    width: 300px;
+}
+
+.mat-grid-tile {
+    width: 50%;
+
+    .mat-card {
+        width: 80%;
+        height: 80%;
+        overflow: auto;
+
+        .mat-card-title {
+            margin: auto 0;
+        }
+
+        .mat-card-content {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+
+        .mat-form-field {
+            width: 200px;
+            padding: 0px;
+        }
+    }
+}
+
+.receipt {
+    width: 100%;
+}
+
+.mat-selected {
+    color: white !important;
+}
